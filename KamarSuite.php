@@ -3,7 +3,6 @@
 require_once 'Reservasi.php';
 
 class KamarSuite extends Reservasi {
-    // Properti tambahan spesifik
     private $layananJacuzzi;
     private $layananJemputBandara;
 
@@ -13,9 +12,9 @@ class KamarSuite extends Reservasi {
         $this->layananJemputBandara = $layananJemputBandara;
     }
 
+    // TAHAP 5: Method Overriding untuk Kamar Suite
     public function hitungTotalBiaya() {
-        // Contoh penyesuaian kelas Suite jika ada biaya tambahan atau skema khusus
-        return $this->durasi_menginap * $this->harga_per_malam;
+        return ($this->durasi_menginap * $this->harga_per_malam) * 1.80;
     }
 
     public function tampilkanFasilitasLayanan() {

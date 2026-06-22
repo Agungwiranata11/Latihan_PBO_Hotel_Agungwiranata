@@ -3,7 +3,6 @@
 require_once 'Reservasi.php';
 
 class KamarDeluxe extends Reservasi {
-    // Properti tambahan spesifik
     private $aksesKolamRenang;
     private $minibarStock;
 
@@ -13,8 +12,9 @@ class KamarDeluxe extends Reservasi {
         $this->minibarStock = $minibarStock;
     }
 
+    // TAHAP 5: Method Overriding untuk Kamar Deluxe
     public function hitungTotalBiaya() {
-        return $this->durasi_menginap * $this->harga_per_malam;
+        return ($this->durasi_menginap * $this->harga_per_malam) + 200000;
     }
 
     public function tampilkanFasilitasLayanan() {
