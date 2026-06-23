@@ -16,7 +16,6 @@ class Database {
                 $this->username,
                 $this->password
             );
-            // Mengatur error mode ke exception untuk mempermudah debugging
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch(PDOException $exception) {
             echo "Koneksi database gagal: " . $exception->getMessage();

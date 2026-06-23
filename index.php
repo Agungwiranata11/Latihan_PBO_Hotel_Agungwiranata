@@ -2,7 +2,7 @@
 // index.php
 
 // 1. Ambil semua file dependensi yang dibutuhkan
-require_once 'config/database.php';
+require_once 'config/Database.php';
 require_once 'Reservasi.php';
 require_once 'KamarStandard.php';
 require_once 'KamarDeluxe.php';
@@ -91,14 +91,14 @@ while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
                 <tbody>
                     <?php foreach ($daftar_reservasi as $reservasi): ?>
                         <tr>
-                            <td><?= $reservasi->hitungTotalBiaya() ? $row['id_reservasi'] : '-'; // Untuk display id (kita bisa tambahkan getter jika perlu, atau pakai manipulasi objek) ?>
-                                Detail Terlampir
-                            </td>
-                            <td>Polimorfik Item</td>
-                            <td colspan="4">
-                                <strong>Fasilitas & Detail Layanan:</strong><br>
+                            <td><?= $reservasi->getIdReservasi(); ?></td>
+                            <td><?= $reservasi->getNomorKamar(); ?></td>
+                            <td><?= $reservasi->getNamaTamu(); ?></td>
+                            <td><?= $reservasi->getDurasiMenginap(); ?> Hari</td>
+                            <td>Rp <?= number_format($reservasi->getHargaPerMalam(), 0, ',', '.'); ?></td>
+                            <td>
                                 <?php 
-                                    // 3. Memanfaatkan METODE POLIMORFIK untuk mencetak atribut unik
+                                    // Memanfaatkan METODE POLIMORFIK untuk mencetak atribut unik
                                     $reservasi->tampilkanFasilitasLayanan(); 
                                 ?>
                             </td>

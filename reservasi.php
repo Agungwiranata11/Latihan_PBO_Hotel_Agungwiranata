@@ -22,5 +22,12 @@ abstract class Reservasi {
     // Wajib diimplementasikan ulang oleh class anak nanti (misal: KamarStandard, KamarDeluxe, dll)
     abstract public function hitungTotalBiaya();
     abstract public function tampilkanFasilitasLayanan();
+
+    // Fungsi Getter untuk mengakses properti yang di-protected
+    public function getIdReservasi() { return $this->id_reservasi; }
+    public function getNomorKamar() { return $this->nomor_kamar; }
+    public function getNamaTamu() { return $this->nama_tamu; }
+    public function getDurasiMenginap() { return $this->durasi_menginap; }
+    public function getHargaPerMalam() { return $this->harga_per_malam; }
 }
 ?>
